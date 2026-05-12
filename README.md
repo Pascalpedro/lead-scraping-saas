@@ -1,5 +1,9 @@
 # RMKR — AI-Powered B2B Lead Scraping SaaS
 
+![RMKR Landing Page](public/landing-preview.png) *(Preview of the landing page)*
+
+**Live Demo:** [https://rmkr.netlify.app/](https://rmkr.netlify.app/)
+
 RMKR is a full-stack, production-ready B2B lead generation platform. It automatically sources, verifies, and personalises business emails specifically designed for high-converting outbound campaigns. Simply type a natural language query (e.g., "Find me 50 marketing managers in New York"), and the system handles the rest.
 
 ## Features
