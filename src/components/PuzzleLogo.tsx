@@ -5,7 +5,7 @@ export function PuzzleLogo({ className }: { className?: string }) {
     <svg 
       className={className} 
       viewBox="0 0 100 100" 
-      fill="#cce9f1" 
+      fill="#c5f135" 
       xmlns="http://www.w3.org/2000/svg"
     >
       {/* Top Left */}
