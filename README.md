@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RMKR — AI-Powered B2B Lead Scraping SaaS
+
+RMKR is a full-stack, production-ready B2B lead generation platform. It automatically sources, verifies, and personalises business emails specifically designed for high-converting outbound campaigns. Simply type a natural language query (e.g., "Find me 50 marketing managers in New York"), and the system handles the rest.
+
+## Features
+
+- **Intelligent Scraping Pipeline:** Primary scraping engine via Apify with an automated, seamless fallback to Apollo.io to bypass free-tier rate limits.
+- **AI Query Translation:** Uses Anthropic Claude (primary) and Google Gemini (fallback) to instantly translate natural language search queries into strict, complex API filter payloads.
+- **AI-Powered Personalisation:** Automatically generates hyper-personalised, spartan-toned cold email icebreakers for every lead based on their role, industry, and company.
+- **Robust Email Verification:** Dual-layer verification through AnyMailFinder and Prospeo integrations to ensure near-zero bounce rates.
+- **Full Authentication & Storage:** Integrated with Supabase Auth (Email/Password) and PostgreSQL for managing user accounts, configurations, and persistent order history.
+- **Premium UI/UX:** Built with React, Next.js (App Router), and a custom "Midnight Luxe" dark-theme design system.
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router)
+- **Language:** TypeScript
+- **Database & Auth:** Supabase
+- **AI Providers:** Anthropic (`claude-sonnet-4-5`), Google Generative AI (`gemini-2.5-flash`)
+- **Scraping APIs:** Apify, Apollo.io
+- **Verification APIs:** AnyMailFinder, Prospeo
+- **Styling:** Vanilla CSS Modules
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Node.js (v20+)
+- A Supabase Project
+- API Keys for the respective integrations (Anthropic, Gemini, Apify, Apollo)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Installation
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. **Clone the repository:**
+   ```bash
+   git clone <repository-url>
+   cd lead-scraping-saas
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. **Set up Environment Variables:**
+   Create a `.env.local` file in the root directory and add your Supabase credentials:
+   ```env
+   NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+   ```
 
-## Learn More
+4. **Database Setup:**
+   Run the SQL statements found in `supabase/schema.sql` within your Supabase SQL editor to create the necessary `configs` and `orders` tables.
 
-To learn more about Next.js, take a look at the following resources:
+5. **Run the Development Server:**
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Usage
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Sign up for an account.
+2. Navigate to the **Configuration** page to securely add your API keys (Anthropic/Gemini for AI, Apify/Apollo for scraping).
+3. Go to **Scrape Leads**, enter your target demographic, and hit Start.
+4. The system will handle data fetching, verification, and AI personalization asynchronously.
+5. Export your enriched lead list from the **Orders** page as a CSV.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+Copyright © 2026 RMKR. All rights reserved.
